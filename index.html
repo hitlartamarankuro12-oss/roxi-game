@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAXI - Offline Turbo Racer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- MAIN MENU -->
+    <div id="main-menu" class="screen">
+        <h1>RAXI TURBO</h1>
+        <p class="subtitle">Offline Arcade Racer</p>
+        <button onclick="startGame()">Start Race</button>
+        <button onclick="openScreen('garage-screen')">Driver Garage</button>
+        <button onclick="openScreen('leaderboard-screen')">Scoreboard</button>
+        <button onclick="openScreen('settings-screen')">Settings</button>
+        <button onclick="openScreen('credits-screen')">Credits</button>
+    </div>
+
+    <!-- GARAGE & DRIVER CARDS -->
+    <div id="garage-screen" class="screen hidden">
+        <h2>Select Driver & Car</h2>
+        <div class="card-container">
+            <div class="card" onclick="selectCar('speedster', '#00ffff', 'Neon Viper')">
+                <h3>Neon Viper</h3>
+                <p>Speed: ⚡⚡⚡</p>
+                <p>Handling: 🚗</p>
+            </div>
+            <div class="card" onclick="selectCar('tank', '#ff5500', 'Iron Titan')">
+                <h3>Iron Titan</h3>
+                <p>Speed: ⚡⚡</p>
+                <p>Handling: 🚗🚗🚗</p>
+            </div>
+        </div>
+        <button onclick="openScreen('main-menu')">Back</button>
+    </div>
+
+    <!-- SCOREBOARD -->
+    <div id="leaderboard-screen" class="screen hidden">
+        <h2>High Scores</h2>
+        <ul id="score-list"></ul>
+        <button onclick="openScreen('main-menu')">Back</button>
+    </div>
+
+    <!-- SETTINGS -->
+    <div id="settings-screen" class="screen hidden">
+        <h2>Settings</h2>
+        <label>Control Scheme:</label>
+        <select id="control-select">
+            <option value="touch">Touch / Drag</option>
+        </select>
+        <label>Traffic Chaos:</label>
+        <select id="ai-density">
+            <option value="normal">Multi-Directional Traffic</option>
+        </select>
+        <button onclick="openScreen('main-menu')">Save & Back</button>
+    </div>
+
+    <!-- CREDITS -->
+    <div id="credits-screen" class="screen hidden">
+        <h2>Credits</h2>
+        <div class="credits-box">
+            <p><strong>Lead Developer & Creator:</strong></p>
+            <p class="highlight-name">Hitlar Tamarankuro</p>
+            <p><strong>Contact Support:</strong></p>
+            <p class="highlight-phone">07083642362</p>
+            <p class="engine-tag">Built with Spck Editor, Termux, & Local AI</p>
+        </div>
+        <button onclick="openScreen('main-menu')">Back</button>
+    </div>
+
+    <!-- GAMEPLAY HUD & CANVAS -->
+    <div id="game-screen" class="screen hidden">
+        <div id="hud">
+            <span id="hud-score">Score: 0</span>
+            <span id="hud-level">Level: 1</span>
+            <span id="hud-speed">Speed: 90 MPH</span>
+            <button onclick="togglePause()">⏸</button>
+        </div>
+        <canvas id="gameCanvas"></canvas>
+    </div>
+
+    <!-- PAUSE MENU OVERLAY -->
+    <div id="pause-modal" class="modal hidden">
+        <h2>Game Paused</h2>
+        <button onclick="togglePause()">Resume</button>
+        <button onclick="restartGame()">Restart</button>
+        <button onclick="exitToMenu()">Quit to Menu</button>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

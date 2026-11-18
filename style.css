@@ -1,0 +1,100 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #0b0b16;
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+    touch-action: none;
+}
+
+.screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+}
+
+.hidden { display: none !important; }
+
+h1 { color: #00ffff; font-size: 3rem; margin: 0; text-shadow: 0 0 15px rgba(0,255,255,0.6); }
+.subtitle { color: #ff007f; margin-bottom: 25px; letter-spacing: 2px; }
+h2 { color: #00ffff; text-shadow: 0 0 10px rgba(0,255,255,0.4); }
+
+button {
+    background: linear-gradient(135deg, #ff007f, #ff5500);
+    border: none;
+    color: white;
+    padding: 12px 28px;
+    margin: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255,0,127,0.4);
+    width: 220px;
+}
+
+button:active { transform: scale(0.96); }
+
+.card-container { display: flex; gap: 15px; margin: 20px 0; }
+.card {
+    background: #16162c;
+    border: 2px solid #00ffff;
+    padding: 15px;
+    border-radius: 12px;
+    cursor: pointer;
+    text-align: center;
+    width: 130px;
+}
+.card:hover { background: #222244; }
+
+.credits-box {
+    background: #16162c;
+    border: 2px solid #ff007f;
+    padding: 20px 30px;
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 15px;
+    width: 280px;
+}
+.highlight-name { color: #00ffff; font-size: 1.2rem; font-weight: bold; margin: 5px 0 15px 0; }
+.highlight-phone { color: #ff5500; font-size: 1.1rem; font-weight: bold; margin: 5px 0; }
+.engine-tag { color: #8888aa; font-size: 0.85rem; margin-top: 15px; }
+
+#score-list { list-style: none; padding: 0; width: 250px; text-align: center; }
+#score-list li { background: #16162c; margin: 5px 0; padding: 10px; border-radius: 6px; border-left: 4px solid #ff007f; }
+
+#game-screen { justify-content: flex-start; }
+#hud {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    box-sizing: border-box;
+    background: rgba(11, 11, 22, 0.95);
+    border-bottom: 2px solid #00ffff;
+    font-size: 14px;
+    font-weight: bold;
+    z-index: 5;
+}
+#hud button { width: auto; padding: 5px 12px; font-size: 14px; margin: 0; }
+
+canvas { background: #121222; display: block; width: 100%; height: calc(100vh - 55px); }
+
+.modal {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(16, 16, 30, 0.98);
+    border: 2px solid #ff007f;
+    padding: 30px;
+    border-radius: 16px;
+    text-align: center;
+    z-index: 20;
+    box-shadow: 0 0 30px rgba(255,0,127,0.5);
+}
