@@ -9,26 +9,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '18'
 
-      - name: Install Nativeifier or Web-to-APK Builder
-        run: |
-          npm install -g nativeifier
-
-      - name: Package Web App into APK Artifact structure
+      - name: Package Web App into Artifact Structure
         run: |
           mkdir -p build-output
-          # Nativeifier creates desktop apps, but for mobile APK building via GitHub actions, 
-          # let's package the source files as an artifact release ready for mobile wrappers.
           cp index.html style.css game.js build-output/
 
       - name: Upload APK / Web Artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: raxi-game-bundle
           path: build-output/
